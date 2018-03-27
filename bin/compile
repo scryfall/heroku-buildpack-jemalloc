@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+set -e
+
+# Parse params
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+# Default version
+version="5.0.1"
+
+# Read version from configured JEMALLOC_VERSION
+if [ -f $ENV_DIR/JEMALLOC_VERSION ]; then
+  version=$(cat $ENV_DIR/JEMALLOC_VERSION)
+fi
+
+url="https://dist.scryfall.com/jemalloc/$STACK/jemalloc-$version.tar.bz2"
+dest="$BUILD_DIR/vendor/jemalloc"
+
+echo "-----> Vendoring jemalloc"
+echo "       Fetching $url"
+
+mkdir -p $dest
+curl -sL $url | tar -C $dest -xj
+
+if [ ! -f $dest/lib/libjemalloc.a ]; then
+  echo "!!!!!! $dest/lib/* was not unpacked correctly"
+  exit 1
+else
+  echo "       Unpacked $dest/lib/*"
+fi
+
+if [ ! -f $dest/bin/jemalloc-config ]; then
+  echo "!!!!!! $dest/bin/jemalloc-config was not unpacked correctly"
+  exit 1
+else
+  chmod a+x $dest/bin/jemalloc-config
+  echo "       Unpacked $dest/bin/jemalloc-config"
+fi
+
+if [ ! -f $dest/bin/jemalloc.sh ]; then
+  echo "!!!!!! $dest/bin/jemalloc.sh was not unpacked correctly"
+  exit 1
+else
+  chmod a+x $dest/bin/jemalloc.sh
+  echo "       Unpacked $dest/bin/jemalloc.sh"
+fi
+
+echo "-----> Building jemalloc runtime environment"
+mkdir -p $BUILD_DIR/.profile.d
+
+cat <<'EOF' > $BUILD_DIR/.profile.d/jemalloc.sh
+export PATH="$PATH:/app/vendor/jemalloc/bin"
+
+# Configure LD_PRELOAD when JEMALLOC_ENABLED is set to "true". Setting this can
+# be tricky for people and it occasionally changes with new versions.
+if [ $JEMALLOC_ENABLED = 'true' ]; then
+  export LD_PRELOAD="$(jemalloc-config --libdir)/libjemalloc.so.$(jemalloc-config --revision) $LD_PRELOAD"
+fi
+EOF

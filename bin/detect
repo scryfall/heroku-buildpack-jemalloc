@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+echo "jemalloc" && exit 0
