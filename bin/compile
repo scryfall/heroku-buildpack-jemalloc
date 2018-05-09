@@ -50,4 +50,4 @@ export PATH="$PATH:/app/vendor/jemalloc/bin"
 if [ "$JEMALLOC_ENABLED" = 'true' ]; then
   export LD_PRELOAD="/app/vendor/jemalloc/lib/libjemalloc.so $LD_PRELOAD"
 fi
-EOFF
+EOF
