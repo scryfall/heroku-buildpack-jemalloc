@@ -42,11 +42,9 @@ fi
 echo "-----> Building jemalloc runtime environment"
 mkdir -p $BUILD_DIR/.profile.d
 
+# Configure LD_PRELOAD when JEMALLOC_ENABLED is set to "true".
 cat <<'EOF' > $BUILD_DIR/.profile.d/jemalloc.sh
 export PATH="$PATH:/app/vendor/jemalloc/bin"
-
-# Configure LD_PRELOAD when JEMALLOC_ENABLED is set to "true". Setting this can
-# be tricky for people and it occasionally changes with new versions.
 if [ "$JEMALLOC_ENABLED" = 'true' ]; then
   export LD_PRELOAD="/app/vendor/jemalloc/lib/libjemalloc.so $LD_PRELOAD"
 fi
