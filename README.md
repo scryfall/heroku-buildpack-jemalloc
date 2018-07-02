@@ -4,7 +4,11 @@ This Heroku buildpack installs [jemalloc](http://jemalloc.net/) on your dynos. j
 
 jemalloc works automatically with Heroku deployments for Ruby, Node, Python, and other languages that manage memory for you.
 
-This buildpack supports both Heroku’s `cedar-14` and `heroku-16` stacks.
+This buildpack supports the following Heroku stacks:
+
+- `cedar-14` (deprecated)
+- `heroku-16`
+- `heroku-18`
 
 ## Install
 
@@ -37,16 +41,21 @@ You can switch between jemalloc versions by setting `JEMALLOC_VERSION` in your e
 heroku config:set JEMALLOC_VERSION=3.6.0
 git push heroku master
 ```
-
-You should test each version of jemalloc with your app to find the best behavior. Each project has unique memory needs.
+You should test each version of jemalloc with your app under load to find the best behavior. Each project has unique memory needs.
 
 Available versions:
 
-| Version | cedar-14 URL | heroku-16 URL | Notes |
+| Version | cedar-14 | heroku-16 | heroku-18 | Notes |
 | ------- | ------------ | ------------- | ----- |
-| `3.6.0` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-3.6.0.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-3.6.0.tar.bz2) | Usually best for Ruby projects |
-| `4.5.0` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-4.5.0.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-4.5.0.tar.bz2) | |
-| `5.0.1` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-5.0.1.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-5.0.1.tar.bz2) | Edge release (default version) |
+| `3.6.0` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-3.6.0.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-3.6.0.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-3.6.0.tar.bz2) | |
+| `4.0.4` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-4.0.4.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-4.0.4.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-4.0.4.tar.bz2) | |
+| `4.1.1` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-4.1.1.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-4.1.1.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-4.1.1.tar.bz2) | |
+| `4.2.1` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-4.2.1.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-4.2.1.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-4.2.1.tar.bz2) | |
+| `4.3.1` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-4.3.1.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-4.3.1.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-4.3.1.tar.bz2) | |
+| `4.4.0` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-4.4.0.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-4.4.0.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-4.4.0.tar.bz2) | |
+| `4.5.0` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-4.5.0.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-4.5.0.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-4.5.0.tar.bz2) | |
+| `5.0.1` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-5.0.1.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-5.0.1.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-5.0.1.tar.bz2) | |
+| `5.1.0` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-5.1.0.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-5.1.0.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-5.1.0.tar.bz2) | Default version |
 
 jemalloc builds are distributed from `dist.scryfall.com`. The bundles are linked above for your inspection.
 
