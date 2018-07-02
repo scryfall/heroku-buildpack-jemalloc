@@ -46,7 +46,7 @@ You should test each version of jemalloc with your app under load to find the be
 Available versions:
 
 | Version | cedar-14 | heroku-16 | heroku-18 | Notes |
-| ------- | ------------ | ------------- | ----- |
+| ------- | -------- | --------- | --------- | ----- |
 | `3.6.0` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-3.6.0.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-3.6.0.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-3.6.0.tar.bz2) | |
 | `4.0.4` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-4.0.4.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-4.0.4.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-4.0.4.tar.bz2) | |
 | `4.1.1` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-4.1.1.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-4.1.1.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-4.1.1.tar.bz2) | |
