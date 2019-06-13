@@ -38,7 +38,7 @@ heroku config:set JEMALLOC_ENABLED=true
 You can switch between jemalloc versions by setting `JEMALLOC_VERSION` in your environment. The setting will take effect the next time you build a new slug.
 
 ```bash
-heroku config:set JEMALLOC_VERSION=3.6.0
+heroku config:set JEMALLOC_VERSION=5.1.0
 git push heroku master
 ```
 You should test each version of jemalloc with your app under load to find the best behavior. Each project has unique memory needs.
@@ -56,6 +56,7 @@ Available versions:
 | `4.5.0` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-4.5.0.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-4.5.0.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-4.5.0.tar.bz2) | |
 | `5.0.1` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-5.0.1.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-5.0.1.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-5.0.1.tar.bz2) | |
 | `5.1.0` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-5.1.0.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-5.1.0.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-5.1.0.tar.bz2) | Default version |
+| `5.2.0` | [(link)](https://dist.scryfall.com/jemalloc/cedar-14/jemalloc-5.2.0.tar.bz2) | [(link)](https://dist.scryfall.com/jemalloc/heroku-16/jemalloc-5.2.0.tar.bz2) |  [(link)](https://dist.scryfall.com/jemalloc/heroku-18/jemalloc-5.2.0.tar.bz2) | |
 
 jemalloc builds are distributed from `dist.scryfall.com`. The bundles are linked above for your inspection.
 
